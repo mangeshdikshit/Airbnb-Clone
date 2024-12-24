@@ -1,0 +1,30 @@
+<% layout('/layouts/boilerplate') -%>
+<body>
+    
+    <div class="row row-cols-lg-3 row-cols-md-3 mt-4">
+      <% for(let i of data) { %>
+        
+
+          <a href="/listings/show/<%= i._id %>" class="card-link">
+            <div class="card" >
+              <img src="<%= i.image %>" class="card-img-top" alt="listing_image" style="height: 20rem;">
+              <div class="card-img-overlay"></div>
+              <div class="card-body">
+                <p class="card-text"><b><%= i.title %></b> <br> &#8377; <%= i.price.toLocaleString() %> / night</p>
+              </div>
+            </div>
+          </a>
+
+      
+
+      <!-- <li><b>ID:</b> <%= i._id %></li>
+      <li><b>TITLE:</b> <%= i.title %></li> -->
+
+      <!-- <form action="/listings/show/<%= i._id %>">
+          <button>Show</button>
+      </form> -->
+      <% } %>
+    </div>
+
+    
+</body>

@@ -1,0 +1,14 @@
+<!-- because msg is an array and empty array is also exists to we check it's length -->
+
+<% if(msg && msg.length) { %>                            
+    <div class="alert alert-success m-3" role="alert">
+        <%= msg %>
+    </div>
+<% } %>
+
+<% if(msgerror && msgerror.length) { %>                            
+    <div class="alert alert-danger m-3" role="alert">
+        <%= msgerror %>
+    </div>
+<% } %>
+

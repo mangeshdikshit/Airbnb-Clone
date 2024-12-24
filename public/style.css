@@ -1,0 +1,121 @@
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container{
+    flex: 1;
+}
+
+
+
+h2{
+    color: red;
+    font-weight: bolder;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+/* Navbar */
+
+.navbar{
+    line-height: 3rem;
+    background-color: white;
+}
+
+.navbar-brand i{
+    font-size: 2rem;
+    color: red;
+}
+
+.nav-link{
+    color: #222222 !important;
+}
+
+
+/* footer */
+
+.footer-info{
+    background-color: rgb(224, 219, 219);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-info div{
+    line-height: 2rem;
+}
+
+.f-info-socials{
+    margin-top: 2rem;
+}
+
+.f-info-socials i{
+    font-size: 1.25rem;
+    margin-right: 8px;
+    opacity: 0.5;
+}
+
+.f-info-socials i:hover{
+    opacity: 1;
+}
+
+.f-info-links{
+    margin-bottom: 1rem;
+}
+
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+
+
+/* all listing */
+
+.card{
+    border: none;
+    margin-bottom: 2rem;
+}
+
+.card img{
+    border-radius: 1rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-body{
+    padding: 0px;
+}
+
+.card-link{
+    text-decoration: none;
+}
+
+.card-img-overlay{
+    opacity: 0;
+}
+
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
+}
+
+
+
+
+/* show page */
+
+.show-img{
+    height: 50vh;
+}
+
+.review{
+    background-color: rgb(227, 238, 238);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}

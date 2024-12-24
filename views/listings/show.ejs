@@ -1,0 +1,125 @@
+<% layout("/layouts/boilerplate") -%>
+
+<body>
+  <h2><%= title %></h2>
+
+  <div class="row">
+    <div class="col-8 offset-2">
+      <div class="card">
+        <img
+          src="<%= image %>"
+          class="card-img-top show-img mt-4"
+          alt="listing_image"
+        />
+        <div class="card-body">
+          <p class="card-text">
+            Owned by <i><%= owner.username %></i>
+            <br />
+            <%= description %> <br />
+            &#8377; <%= price.toLocaleString() %> <br />
+            <%= location %> <br />
+            <%= country %>
+          </p>
+        </div>
+      </div>
+
+      <!-- <li>id: <%= _id %></li>
+      <li>title: <%= title %></li>
+      <li>description: <%= description %></li>
+      <li>image: <%= image %></li>
+      <li>price: &#8377; <%= price.toLocaleString() %></li>
+      <li>location: <%= location %></li>
+      <li>country: <%= country %></li> -->
+
+
+      <!-- <% if(user && owner._id.equals(user._id)) { %> -->
+        <div class="row">
+          <div class="col-1">
+            <form action="/listings/<%= _id %>/edit" class="mt-4">
+              <button class="btn btn-dark">Edit</button>
+            </form>
+          </div>
+  
+          <div class="col-1">
+            <form
+              action="/listings/<%= _id %>/delete?__method=DELETE"
+              method="post"
+              class="mt-4 mb-4"
+            >
+              <button class="btn btn-danger">Delete</button>
+            </form>
+          </div>
+        </div>
+        <!-- <% } %> -->
+
+      
+      <br /><br />
+      <hr />
+
+      <% if(user) { %>
+      <div>
+        <h4>Leave a Review:</h4>
+        <form
+          action="/listings/show/<%= _id %>"
+          method="post"
+          class="mt-4 mb-4 needs-validation"
+          novalidate
+        >
+          <div class="row">
+            <label for="rating" class="form-lable">Rating</label>
+            <input
+              type="range"
+              min="1"
+              max="5"
+              id="rating"
+              name="rating"
+              class="form-range"
+            />
+          </div>
+
+          <div class="row mt-2 mb-4">
+            <label for="comment" class="form-lable">Comment</label>
+            <textarea
+              name="comment"
+              id="comment"
+              class="form-control"
+              required
+            ></textarea>
+            <div class="invalid-feedback">
+              Please Enter this feild!
+            </div>
+          </div>
+
+          <button class="btn btn-primary mb-5">comment</button>
+        </form>
+
+        <% } %>
+
+        
+        <div class="row">
+          <% if(reviews.length){ %> 
+            <% for(let i of reviews) { %>
+
+            <div class="card review col-5 ms-3">
+              
+               <div class="card-body mb-3">
+                <h5 class="card-title"><%= i.author.username %></h5>
+                <p class="card-text"><%= i.comment %> </p>
+                <p class="card-text"><%= i.rating %> stars</p>
+               </div>
+          
+              <% if(user && user._id.equals(i.author._id)) { %>
+               <form action="/listings/<%= _id %>/show/<%= i._id %>?__method=DELETE" method="post">
+                <button class="btn btn-sm"><i class="fa-solid fa-trash"></i></button>
+               </form>
+               <% } %>
+          
+            </div>
+    
+            <% } %> <% } %>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</body>
